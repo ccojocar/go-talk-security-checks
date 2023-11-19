@@ -1,0 +1,20 @@
+[gosec] 2023/11/14 19:30:13 Including rules: default
+[gosec] 2023/11/14 19:30:13 Excluding rules: default
+[gosec] 2023/11/14 19:30:13 Import directory: /home/securego/samples/golab/ssrf
+[gosec] 2023/11/14 19:30:14 Checking package: main
+[gosec] 2023/11/14 19:30:14 Checking file: /home/securego/samples/golab/ssrf/main.go
+Results:
+
+[/home/securego/samples/golab/ssrf/main.go:26] - G107 (CWE-88): Potential HTTP request made 
+with variable url (Confidence: MEDIUM, Severity: MEDIUM)
+    25: func makeRequest(url string) ([]byte, error) {
+  > 26:         resp, err := http.Get(url) // HL
+    27:         if err != nil {
+
+
+Summary:
+  Gosec  : dev
+  Files  : 1
+  Lines  : 36
+  Nosec  : 0
+  Issues : 1

@@ -1,0 +1,25 @@
+project_name: my_project
+signs: // HL
+- cmd: cosign // HL
+  stdin: '{{ .Env.COSIGN_PASSWORD}}' // HL
+  args: // HL
+  - "sign-blob" // HL
+  - "--key=/tmp/cosign.key" // HL
+  - "--output=${signature}" // HL
+  - "${artifact}" // HL
+  - "--yes" // HL
+  artifacts: all // HL
+release:
+  extra_files:
+    - glob: ./bom.json
+  github:
+    owner: my_github
+    name: my_project
+builds:
+  - main: ./cmd/my_project/
+    binary: my_project
+    goos:
+      - linux
+    goarch:
+      - amd64
+

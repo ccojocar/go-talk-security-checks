@@ -1,0 +1,4 @@
+go install golang.org/x/vuln/cmd/govulncheck@latest 
+
+// run this in the root of your project
+govulncheck ./...

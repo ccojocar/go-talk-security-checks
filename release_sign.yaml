@@ -1,0 +1,17 @@
+name: Release
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+     ... 
+      - name: Sign Docker Image
+        run: cosign sign --yes --key /tmp/cosign.key ${DIGEST} // HL
+        env:
+          TAGS: ${{steps.meta.outputs.tags}}
+          COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
+          COSIGN_PRIVATE_KEY: /tmp/cosign.key
+          DIGEST: ${{steps.relimage.outputs.digest}}

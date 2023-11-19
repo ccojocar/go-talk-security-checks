@@ -1,0 +1,21 @@
+CHECKING VULNERABILITIES
+Scanning your code and 223 packages across 10 dependent modules for known vulnerabilities...
+
+Vulnerability #1: GO-2023-2185
+    Insecure parsing of Windows paths with a \??\ prefix in path/filepath
+  More info: https://pkg.go.dev/vuln/GO-2023-2185
+  Standard library
+    Found in: path/filepath@go1.21.3
+    Fixed in: path/filepath@go1.21.4
+    Platforms: windows
+    Example traces found:
+      #1: helpers.go:493:21: gosec.RootPath calls filepath.Abs
+      #2: testutils/pkg.go:72:45: testutils.TestPackage.Build calls build.Context.ImportDir, which eventually calls filepath.Base
+      #3: testutils/pkg.go:5:2: testutils.init calls build.init, which eventually calls filepath.Clean
+      #4: helpers.go:358:25: gosec.GetPkgRelativePath calls filepath.Dir
+      #5: testutils/pkg.go:72:45: testutils.TestPackage.Build calls build.Context.ImportDir, which eventually calls filepath.EvalSymlinks
+      #6: helpers.go:329:32: gosec.Gopath calls filepath.Join
+      #7: testutils/pkg.go:86:28: testutils.TestPackage.Build calls packages.Load, which eventually calls filepath.Rel
+      #8: cmd/tlsconfig/tlsconfig.go:183:27: tlsconfig.main calls format.Source, which eventually calls filepath.Split
+      #9: testutils/pkg.go:72:45: testutils.TestPackage.Build calls build.Context.ImportDir, which eventually calls filepath.VolumeName
+      #10: helpers.go:445:22: gosec.PackagePaths calls filepath.Walk

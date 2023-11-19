@@ -1,0 +1,24 @@
+     0  *ast.File {
+     1  .  Package: main.go:1:1
+     6  .  Decls: []ast.Decl (len = 3) {
+    47  .  .  1: *ast.FuncDecl {
+    64  .  .  .  Body: *ast.BlockStmt {
+    67  .  .  .  .  .  0: *ast.ExprStmt {
+    68  .  .  .  .  .  .  X: *ast.CallExpr { // HL
+    69  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+    70  .  .  .  .  .  .  .  .  X: *ast.Ident {
+    72  .  .  .  .  .  .  .  .  .  Name: "http" // HL
+    73  .  .  .  .  .  .  .  .  }
+    74  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+    76  .  .  .  .  .  .  .  .  .  Name: "Get" // HL
+    77  .  .  .  .  .  .  .  .  }
+    78  .  .  .  .  .  .  .  }
+   145  .  .  .  .  .  .  .  .  .  Body: *ast.BlockStmt {
+   147  .  .  .  .  .  .  .  .  .  .  List: []ast.Stmt (len = 5) {
+   148  .  .  .  .  .  .  .  .  .  .  .  0: *ast.AssignStmt {
+   149  .  .  .  .  .  .  .  .  .  .  .  .  Lhs: []ast.Expr (len = 1) {
+   150  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.Ident {
+   152  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "url"
+   153  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Obj: *ast.Object { 
+   154  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: var 
+   155  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "url"

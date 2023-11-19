@@ -1,0 +1,23 @@
+func main():
+0:                                                                entry P:0 S:2
+	t0 = net/http.Get("https://mysite.org":string) (resp *net/http.Response, err error) // HL
+	t1 = extract t0 #0                                   *net/http.Response
+	t2 = extract t0 #1                                                error
+	t3 = t2 != nil:error                                               bool
+	if t3 goto 1 else 2
+1:                                                              if.then P:1 S:1
+	t4 = new [1]any (varargs)                                       *[1]any
+	t5 = &t4[0:int]                                                    *any
+	t6 = change interface any <- error (t2)                             any
+	*t5 = t6
+	t7 = slice t4[:]                                                  []any
+	t8 = log.Fatal(t7...)                                                ()
+	jump 2
+2:                                                              if.done P:2 S:2
+	t9 = &t1.Body [#6]                                       *io.ReadCloser
+	t10 = *t9                                                 io.ReadCloser
+	defer invoke t10.Close()
+	t11 = &t1.Body [#6]                                      *io.ReadCloser
+	t12 = *t11                                                io.ReadCloser
+	t13 = change interface io.Reader <- io.ReadCloser (t12)       io.Reader
+	t14 = io/ioutil.ReadAll(t13)                            ([]byte, error)
