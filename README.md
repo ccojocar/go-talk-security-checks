@@ -17,4 +17,4 @@ You can now start the `present` tool in the root of this repository:
 present -base . -content .
 ```
 
- Open your web browser and visit [http://127.0.0.1:3999]().
+ Open your web browser and visit http://127.0.0.1:3999.
